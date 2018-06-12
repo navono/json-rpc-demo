@@ -15,7 +15,7 @@ const option = {
 const client = jayson.client.http(option);
 const req = client.request('HelloService.Say', {Who: "ping", Age: 18});
 
-// For match Gorrila rpc specification
+// For match Gorilla rpc specification
 const paramsList = [];
 paramsList.push(req.params);
 req.params = paramsList;
