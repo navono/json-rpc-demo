@@ -18,7 +18,7 @@ type HelloReply struct {
 }
 
 func main() {
-	url := "http://localhost:3000/rpc"
+	url := "http://localhost:3003/rpc"
 
 	args := &HelloArgs{
 		Who: "ping",

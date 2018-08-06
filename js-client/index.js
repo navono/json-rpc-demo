@@ -2,7 +2,7 @@ const jayson = require('jayson');
 const fetch = require('node-fetch');
 
 const option = {
-  port: 3000,
+  port: 3003,
   method: 'POST',
   mode: 'cors',
   headers: {
@@ -20,6 +20,7 @@ const paramsList = [];
 paramsList.push(req.params);
 req.params = paramsList;
 const reqStr = JSON.stringify(req);
+// console.log('reqStr', reqStr);
 const reqAscii = [];
 for(let i = 0, length = reqStr.length; i < length; i++) {
     const code = reqStr.charCodeAt(i);
@@ -30,8 +31,9 @@ for(let i = 0, length = reqStr.length; i < length; i++) {
 
 const buf = new Buffer(reqAscii);
 option.body = new Buffer(buf);
+console.log(option);
 
-fetch('http://localhost:3000/rpc', option)
+fetch('http://localhost:3003/rpc', option)
   .then(function(res) { return res.text(); })
   .then(function(text) { 
     const response = JSON.parse(text);

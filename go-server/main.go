@@ -39,9 +39,9 @@ func main() {
 	router := mux.NewRouter()
 	router.Handle("/rpc", s)
 
-	headersContentType := handlers.AllowedHeaders([]string{"Content-Type"})
+	headersContentType := handlers.AllowedHeaders([]string{"Content-Type", "Access-Control-Allow-Origin"})
 	// methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
 
-	log.Println("JSON-RPC server listening on :3000")
-	http.ListenAndServe(":3000", handlers.CORS(headersContentType)(router))
+	log.Println("JSON-RPC server listening on :3003")
+	http.ListenAndServe(":3003", handlers.CORS(headersContentType)(router))
 }
